@@ -68,13 +68,27 @@ Using any tells that please remove type checking as my variable will hold any va
 Void represents the absence of any value. It’s typically used as the return type of functions that don’t return anything.
 
 6. **null**  
-7. **undefined**  
+
+It represents an intentional absence of any object value.
+A variable is explicitly set to null when we want to indicate that it has no value.
+
+7. **undefined** 
+
+It means a variable has been declared but hasn’t been assigned any value yet.
+It’s the default value of uninitialized variables in TypeScript and JavaScript.
+
 8. **never** 
 
 to be used when function NEVER returns anything, so you can use it while throwing any error as it will handle the function and throw any error 
 Never represents value which is never observed, in return type, this means that function throws an exception or error or terminates the program
 
 9. **object**  
+
+Objects contain key value pairs, more useful when you want to send data to db or to browser storage, key value pairs come in handy, indirectly using objects
+function createDetails():{name: string}{
+    return {name: "Vinayak"}
+}
+
 10. **array**  
 11. **tuple**  
 12. **enum**  
@@ -141,3 +155,25 @@ function greetingUser(username: string): void {
     console.log(`Good morning`, username);
 }
 console.log(greetingUser("Vinayak"));
+
+
+Type aliases
+
+Type aliases in TypeScript are used to create a custom name for a type, making your code cleaner, more readable, and easier to maintain.
+Provides a single, clean name for complex types like objects, unions, intersections, and function signatures.
+Allows the same type definition to be reused across multiple variables, functions, and components.
+
+You can combine two or more objects directly to form a new object, can be done easily with mismatch types
+cardDetails will have all the objects , this technique can be handy when you want to combine multiple objects with 100s of variables.
+
+type cardNumber = {
+    number: number
+}
+
+type cardExpiry = {
+    date: Date
+}
+
+type cardDetails = cardNumber & cardExpiry & {
+    nameOfBank: string
+}
