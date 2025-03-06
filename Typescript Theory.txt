@@ -90,10 +90,63 @@ function createDetails():{name: string}{
 }
 
 10. **array**  
+
+Array can be thought of as group or bunch of elements in a single data structure.
+
+Syntax: 
+const arrayElements : type [] = []
+
+Eg. const details: string [] = []
+then you can use methods like push, pull, loop through it and all
+
+Another way to declare array: 
+const array : Array<number> = []
+
+For two dimensional array:
+const 2dArray: number[][] = [[], []]
+
 11. **tuple**  
 12. **enum**  
 13. **unknown**  
-14. **bigint**  
+14. **union**  
+
+Union type is something which you can use when you don't know which type of data will be stored, like number or string.
+Yes we have 'any' but as we saw previously, any is quite a bad practice to work with.
+Instead we use 'Union', now Union gives us power to combine two or more values of different data type, Isn't it better than any
+
+We use '|' sign to combine two or more datatypes to a single variable, function or array, objects, expect
+
+eg. let value : string | number | boolean = value
+
+Now, using '|' we can combine n number of datatypes, but it will be a good practice to string and reduce the types to what actually can be stored. Making it strict meaning reducing the datatypes. This will allow more good readability and no confusions
+
+Can also define objects with two differnt type objects
+```
+type User = {
+    name: string
+    id: number
+}
+
+type AdminUser = {
+    admin: string
+    adminId: number
+}
+
+let userDetails: User | AdminUser = {
+    name: "VBS",
+    id: 11
+}
+```
+
+Can also be used in functions where you can either pass and return a data as string or number or boolean
+function function_name(id: number | string): number | string {}
+
+At array side, we can also make an array either take string or number, instead of using type 'any', this will be a great operations
+Why to use in array, considering an array can be a bunch of elements, elements were strict for number or string or boolean or any other type, now using '|' union type, storing becomes easy.
+
+Imagine you’re building a user notification system for a web app. Notifications can have different types of content — like text messages, status codes, and read/unread flags.
+This way, union types let you structure mixed-type data in a way that makes sense for your app — no need for separate arrays or complex objects when a simple union array works perfectly.
+
 15. **symbol**
 
 
