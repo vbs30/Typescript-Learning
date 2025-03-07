@@ -106,7 +106,69 @@ For two dimensional array:
 const 2dArray: number[][] = [[], []]
 
 11. **tuple**  
+
+fixed-size, ordered collection of elements where each element can have a different type. It’s like an array, but with strict types and a fixed number of items.
+
+Use case for using tuple may be :
+1. returning multiple values from a string
+2. key value pairs in an array, fixed length, need not to use objects as objects can have more keys. Simply saying you can restrict key value pairs like [string, string] and save only string values
+3. Can be used to send a status notification with message 
+
+```
+function apiResponse(success: boolean): [number, string] {
+    return success ? [200, "Success"] : [500, "Internal Server Error"];
+}
+const response = apiResponse(true);
+console.log(response); // [200, "Success"]
+```
+
 12. **enum**  
+
+special type used to define a set of named constants. Enums make it easier to document intent and create a set of distinct values that can represent states, categories, or options.
+
+Important points: 
+WHEN YOU COMPILE THESE ENUMS IN JS, IT GETS CONVERTED INTO IIFE (CHECK THIS AFTER TS FILE COMPILATION)
+Values start from 0 by default and increment by 1.
+You can manually assign numbers.
+
+```
+enum StatusCode {
+    OK = 200,
+    BadRequest = 400,
+    NotFound = 404
+}
+console.log(StatusCode.OK);       // 200
+```
+
+Values are assigned as strings.
+Combine numeric and string values.
+
+
+For real life example, consider an ecommerce app where role is to be defined and based on role, further actions or consider some routes are to be displayed.
+Eg. 
+For role user, you may show products, carts, categories, payments
+For role admin, you may show dashboards, products adding deleting, changing status for orders, etc
+
+Now consider that there are more than 5-6 roles, and when in coding you will have to type hardcoding in switch cases that hey if role is admin, then show this and so on.
+Here, maintaining these many roles directly is a messy thing as if new coders wanna work on it, they will have to check for each role what is who and so on, they will not have a simple document which will make them understand.
+
+So in such cases enums come in handy, What enum does is it maintains a seperate document assigning values from 0 to each roles
+So when coding, you can directly use it as a documentation or a category stuff.
+
+enum Role {
+    Admin,
+    User,
+    Guest
+}
+
+enum OrderStatus {
+    Placed,
+    Shipped,
+    Delivered,
+    Cancelled
+}
+
+
 13. **unknown**  
 14. **union**  
 
