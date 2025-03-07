@@ -52,3 +52,6 @@ enum responseStatus {
 }
 console.log(responseStatus.Success);    // 1
 console.log(responseStatus.Error);      // "ERROR"
+
+
+export {}
