@@ -36,3 +36,6 @@ Using extends keyword, you can achieve inheritence for instances
     Use type alias when you need to define complex types (unions, intersections, primitives).
 
 
+# Classes
+
+Classes are just like js classes, just one catch here is adding type to each variable or method, rest is same as classes in js
